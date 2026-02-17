@@ -47,3 +47,8 @@ clearEventsBtn.addEventListener("click", function () {
   eventsContainer.innerHTML = "";
    updateEventCount(); 
 });
+
+// Initialize counter when page loads
+document.addEventListener("DOMContentLoaded", function () {
+  updateEventCount();
+});
