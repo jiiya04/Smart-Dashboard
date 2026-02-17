@@ -1,6 +1,13 @@
 const addEventBtn = document.getElementById("addEventBtn");
 const clearEventsBtn = document.getElementById("clearEventsBtn");
 const eventsContainer = document.getElementById("eventsContainer");
+const eventCount = document.getElementById("eventCount");
+
+function updateEventCount() {
+  const total = document.querySelectorAll(".event-item").length;
+  eventCount.textContent = "Total Events: " + total;
+}
+
 
 addEventBtn.addEventListener("click", function () {
   const title = document.getElementById("title").value;
@@ -26,11 +33,11 @@ addEventBtn.addEventListener("click", function () {
 
   eventDiv.querySelector(".delete-btn").addEventListener("click", function () {
     eventDiv.remove();
+     updateEventCount();
   });
 
   eventsContainer.appendChild(eventDiv);
 
-  // Clear inputs after adding
   document.getElementById("title").value = "";
   document.getElementById("date").value = "";
   document.getElementById("description").value = "";
@@ -38,4 +45,5 @@ addEventBtn.addEventListener("click", function () {
 
 clearEventsBtn.addEventListener("click", function () {
   eventsContainer.innerHTML = "";
+   updateEventCount(); 
 });
